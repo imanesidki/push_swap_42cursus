@@ -6,39 +6,39 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 22:15:30 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/06 01:28:01 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/07 23:18:18 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	**parsing(int ac, char **av)
+void	show_elm(t_list *a)
 {
-	char	*str;
-	char	**array;
-	t_list	**stack_a;
-
-	str = ft_strjoin(ac, av, ' ');
-	check_digit(str);
-	array = ft_split(str, ' ');
-	free(str);
-	stack_a = stock_in_stack(array);
-	free_all(array, 0);
-	return (stack_a);
+	printf("---------------------------\n");
+	while (a)
+	{
+		printf("%d\n",a->content);
+		a = a->next;
+	}
+	printf("---------------------------\n");
 }
 
-t_list	**stock_in_stack(char **array)
+t_list	*stock_in_stack(char **array)
 {
-	t_list	**stack_a;
+	t_list	*stack_a;
 	int		i;
 
-	i = 0;
-	while (array[i++])
-		lstadd_back(stack_a, lstnew(ft_atoi(array[i])));
+	i = -1;
+	stack_a = NULL;
+	while (array[++i])
+	{
+		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(array[i])));
+		show_elm(stack_a);
+	}
 	return (stack_a);
 }
 
-void	lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*parcour;
 
@@ -48,11 +48,11 @@ void	lstadd_back(t_list **lst, t_list *new)
 		return ;
 	}
 	parcour = *lst;
-	while (parcour->next)
+	while (parcour)
 	{
 		if (parcour->content == new->content)
 		{
-			free_all(lst, 0);
+			ft_lstclear(lst);
 			msg_err();
 		}
 		parcour = parcour->next;
@@ -60,7 +60,7 @@ void	lstadd_back(t_list **lst, t_list *new)
 	parcour->next = new;
 }
 
-t_list	*lstnew(int content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*node;
 
@@ -72,7 +72,7 @@ t_list	*lstnew(int content)
 	return (node);
 }
 
-int	lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int	i;
 
@@ -83,4 +83,21 @@ int	lstsize(t_list *lst)
 		i++;
 	}
 	return (i);
+}
+
+void	ft_lstclear(t_list **lst)
+{
+	t_list	*parcour;
+	t_list	*l;
+
+	if (!lst)
+		return ;
+	parcour = *lst;
+	while (parcour)
+	{
+		l = parcour;
+		parcour = parcour->next;
+		free (l);
+	}
+	*lst = NULL;
 }

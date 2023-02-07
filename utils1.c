@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 12:34:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/05 22:50:03 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/07 21:03:48 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	free_all(char **str, int j)
 	free(str);
 }
 
-static char	*ft_strdup(const char *source)
+static char	*ft_strdup(char *source)
 {
 	char	*dst;
 	int		i;
@@ -52,13 +52,13 @@ static char	*ft_strdup(const char *source)
 	dst = (char *) malloc(i + 1);
 	if (!dst)
 		return (NULL);
-	while (j < i)
-		dst[j++] = source[j++];
+	while (j++ < i)
+		dst[j] = source[j];
 	dst[i] = '\0';
 	return (dst);
 }
 
-static char	*ft_substr(char const *s, unsigned int start, int len)
+static char	*ft_substr(char *s, int start, int len)
 {
 	char	*sub;
 	int		i;
