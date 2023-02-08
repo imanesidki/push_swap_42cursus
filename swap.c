@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 00:11:56 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/07 21:26:06 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/08 01:36:55 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,14 @@
 void	sa(t_list *a, int c)
 {
 	int	tmp;
-	t_list	*parcour;
 
-	parcour = a;
 	if (ft_lstsize(a) >= 2)
 	{
-	while (parcour->next->next)
-	{
-		tmp = parcour->content;
-		parcour = parcour->next;
-	}
-	parcour->prev->content = parcour->content;
-	parcour->content = tmp;
-	if (c == 0)
-		write (1, "sa\n", 3);
+		tmp = a->content;
+		a->content = a->next->content;
+		a->next->content = tmp;
+		if (c == 0)
+			write (1, "sa\n", 3);
 	}
 }
 

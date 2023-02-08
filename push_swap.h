@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:39:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/07 23:01:36 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/08 01:26:51 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_list
 	int				index;
 	int				content;
 	struct s_list	*next;
-	struct s_list	*prev;
 }	t_list;
 
 void		sa(t_list *a, int c);
@@ -51,5 +50,6 @@ void		ft_lstadd_back(t_list **lst, t_list *new);
 t_list		*ft_lstnew(int content);
 int			ft_lstsize(t_list *lst);
 void		ft_lstclear(t_list **lst);
+void		show_elm(t_list *a);
 
 #endif

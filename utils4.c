@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:10:57 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/07 23:19:09 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/08 00:29:02 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,11 @@ t_list	*parsing(int ac, char **av)
 	char	*str;
 	char	**array;
 	t_list	*stack_a;
-	int	i = 0;
 
 	str = ft_strjoin(ac - 1, av + 1, ' ');
 	check_digit(str);
 	array = ft_split(str, ' ');
 	free(str);
 	stack_a = stock_in_stack(array);
-	free_all(array, 0);
 	return (stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 22:15:30 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/07 23:18:18 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/08 01:29:52 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	show_elm(t_list *a)
 {
-	printf("---------------------------\n");
+	printf("----------------------\n");     //to replace printf
 	while (a)
 	{
 		printf("%d\n",a->content);
 		a = a->next;
 	}
-	printf("---------------------------\n");
+	printf("----------------------\n");
 }
 
 t_list	*stock_in_stack(char **array)
@@ -33,7 +33,6 @@ t_list	*stock_in_stack(char **array)
 	while (array[++i])
 	{
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(array[i])));
-		show_elm(stack_a);
 	}
 	return (stack_a);
 }
@@ -48,7 +47,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		return ;
 	}
 	parcour = *lst;
-	while (parcour)
+	while (parcour->next)
 	{
 		if (parcour->content == new->content)
 		{

@@ -6,23 +6,19 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:39:35 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/07 23:02:20 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/08 01:27:17 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	printList(t_list *node) //it's a checking test to delete
-{
-	while (node)
-	{
-		printf("%d ", node->content);
-		node = node->next;
-	}
-}
-
+// void ft_leaks()
+// {
+// 	system("leaks push_swap");
+// }
 int	main(int ac, char **av)
 {
+	// atexit(ft_leaks);
 	t_list	*stack_a;
 	int		i;
 
@@ -32,7 +28,8 @@ int	main(int ac, char **av)
 	if (ac >= 2)
 	{
 		stack_a = parsing(ac, av);
-		printList(stack_a); //test to delete
+		show_elm(stack_a);
 	}
+
 	return (0);
 }
