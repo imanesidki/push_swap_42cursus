@@ -6,17 +6,11 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:10:57 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/08 00:29:02 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/11 03:05:01 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	msg_err(void)
-{
-	write (1, "Error\n", 6);
-	exit (1);
-}
 
 static int	ft_total_len(int size, char **strs)
 {
@@ -69,18 +63,4 @@ char	*ft_strjoin(int size, char **strs, char sep)
 	str = (char *) malloc (total_len);
 	remplir (str, strs, size, sep);
 	return (str);
-}
-
-t_list	*parsing(int ac, char **av)
-{
-	char	*str;
-	char	**array;
-	t_list	*stack_a;
-
-	str = ft_strjoin(ac - 1, av + 1, ' ');
-	check_digit(str);
-	array = ft_split(str, ' ');
-	free(str);
-	stack_a = stock_in_stack(array);
-	return (stack_a);
 }

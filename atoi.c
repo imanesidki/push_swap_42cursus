@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:32:00 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/07 22:45:36 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/11 03:05:58 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,4 @@ int	ft_strlen(char *str)
 	while (*(str + i))
 		i++;
 	return (i);
-}
-
-void	check_digit(char *str)
-{
-	int	i;
-
-	i = -1;
-	while (str[++i])
-	{
-		if (str[i] != '-' && str[i] != '+'
-			&& str[i] != ' ' && (str[i] < '0' || str[i] > '9'))
-				msg_err();
-		if ((str[i] == '+' || str[i] == '-')
-			&& (str[i + 1] < '0' || str[i + 1] > '9'))
-			msg_err();
-	}
 }

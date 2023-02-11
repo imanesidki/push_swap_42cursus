@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   freeing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 23:39:35 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/11 05:05:07 by isidki           ###   ########.fr       */
+/*   Created: 2023/02/11 02:50:53 by isidki            #+#    #+#             */
+/*   Updated: 2023/02/11 05:02:42 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_leaks()
+void	free_and_exit(t_list *a)
 {
-	system("leaks push_swap");
+	while (a)
+	{
+		free(a);
+		a = a->next;
+	}
+	exit (0);
 }
 
-int	main(int ac, char **av)
+void	free_all(char **str)
 {
-	atexit(ft_leaks);
-	t_list	*stack_a;
-	int		i;
+	int	i;
 
-	i = 0;
-	if (ac == 1)
-		exit(0);
-	if (ac >= 2)
-	{
-		stack_a = parsing(ac, av);
-		if (ft_sorted(stack_a))
-			free_and_exit(stack_a);
-		if (ft_lstsize(stack_a) <= 3)
-			sort3(stack_a);
-		else if (ft_lstsize(stack_a) <= 5)
-			sort5(stack_a);
-		else
-			LIS_sort(stack_a);
-		show_elm(stack_a);
-	}
-	return (0);
+	i = -1;
+	while (str[++i])
+		free(str[i]);
+	free(str);
 }

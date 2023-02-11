@@ -4,9 +4,9 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCE = push_swap.c swap.c utils1.c\
-push_a_b.c rotate.c utils4.c\
-utils2.c utils3.c\
+SOURCE = push_swap.c swap.c split.c\
+push_a_b.c rotate.c strjoin.c parsing.c\
+atoi.c linked_list.c freeing.c\
 
 OBJET = $(SOURCE:%.c=%.o)
 

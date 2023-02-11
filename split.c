@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 12:34:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/07 21:03:48 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/11 02:51:46 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,6 @@ static int	count_nums(char *str, char c)
 		if (str[i] != c && (str[i + 1] == c || !str[i + 1]))
 			count++;
 	return (count);
-}
-
-void	free_all(char **str, int j)
-{
-	int	i;
-
-	i = 0;
-	if (j == 0)
-	{
-		while (str[i++])
-			free(str[i]);
-		free(str[i]);
-	}
-	while (j--)
-		free(str[j]);
-	free(str);
 }
 
 static char	*ft_strdup(char *source)
@@ -104,7 +88,7 @@ char	**ft_split(char *s, char c)
 			i++;
 		str[l] = ft_substr(s, j, i - j);
 		if (!str[l])
-			return (free_all(str, l), NULL);
+			return (free_all(str), NULL);
 	}
 	return (str[l] = NULL, str);
 }
