@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:18:14 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/11 03:07:53 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/12 18:45:02 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	pa(t_list **a, t_list **b, int c)
 {
 	t_list	*tmp;
 
-	if (*b && (*b)->next)
+	if (*b)
 	{
 		tmp = *b;
 		*b = (*b)->next;
@@ -31,7 +31,7 @@ void	pb(t_list **a, t_list **b, int c)
 {
 	t_list	*tmp;
 
-	if (*a && (*a)->next)
+	if (*a)
 	{
 		tmp = *a;
 		*a = (*a)->next;
@@ -50,12 +50,12 @@ void	rra(t_list **a, int c)
 	if (*a && (*a)->next)
 	{
 		parcour = *a;
-		while (parcour->next->next)
+		while (parcour->next)
 		{
 			tmp = parcour;
 			parcour = parcour->next;
 		}
-		ft_lstadd_front(a, parcour->next);
+		ft_lstadd_front(a, parcour);
 		tmp->next = NULL;
 		if (c == 0)
 			write (1, "rra\n", 4);

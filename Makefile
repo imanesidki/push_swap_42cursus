@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SOURCE = push_swap.c swap.c split.c\
 push_a_b.c rotate.c strjoin.c parsing.c\
-atoi.c linked_list.c freeing.c\
+atoi.c linked_list.c freeing.c sorting.c\
 
 OBJET = $(SOURCE:%.c=%.o)
 

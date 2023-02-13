@@ -6,11 +6,17 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 02:53:39 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/11 02:57:12 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/13 00:49:14 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	msg_err(void)
+{
+	write (1, "Error\n", 6);
+	exit (1);
+}
 
 void	check_digit(char *str)
 {
@@ -21,17 +27,11 @@ void	check_digit(char *str)
 	{
 		if (str[i] != '-' && str[i] != '+'
 			&& str[i] != ' ' && (str[i] < '0' || str[i] > '9'))
-				msg_err();
+			msg_err();
 		if ((str[i] == '+' || str[i] == '-')
 			&& (str[i + 1] < '0' || str[i + 1] > '9'))
 			msg_err();
 	}
-}
-
-void	msg_err(void)
-{
-	write (1, "Error\n", 6);
-	exit (1);
 }
 
 t_list	*stock_in_stack(char **array)
@@ -68,7 +68,7 @@ void	show_elm(t_list *a) //to remove
 	printf("----------------------\n");
 	while (a)
 	{
-		printf("%d\n",a->content);
+		printf("content = %d| index = %d\n", a->content, a->index);
 		a = a->next;
 	}
 	printf("----------------------\n");

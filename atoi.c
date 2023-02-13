@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:32:00 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/11 03:05:58 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/13 00:44:46 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	ft_atoi(char *str)
 {
 	long		n;
-	long		last;
 	int			sign;
 
 	sign = 1;
@@ -31,14 +30,9 @@ int	ft_atoi(char *str)
 	if (!*str)
 		msg_err();
 	while (*str >= '0' && *str <= '9')
-	{
-		last = n;
 		n = n * 10 + *str++ - '0';
-		if (last != n / 10 && sign == 1)
-			msg_err();
-		else if (last != n / 10 && sign == -1)
-			msg_err();
-	}
+	if ((n * sign) > 2147483647 || (n * sign) < -2147483647)
+		msg_err();
 	return (n * sign);
 }
 

@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:39:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/11 03:59:12 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/13 02:03:07 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_list
 }	t_list;
 
 /**********************************************/
-/****************operations********************/
+/************push_swap_operations**************/
 
 void		sa(t_list **a, int c);
 void		sb(t_list **b, int c);
@@ -51,7 +51,7 @@ int			ft_atoi(char *str);
 int			ft_strlen(char *str);
 
 /*************************************************/
-/*******************linked*list*operations**********/
+/*****************linked_list_operations**********/
 
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);
@@ -66,7 +66,7 @@ t_list		*parsing(int ac, char **av);
 void		check_digit(char *str);
 void		msg_err(void);
 t_list		*stock_in_stack(char **array);
-void		show_elm(t_list *a); //to remove
+void		show_elm(t_list *a);                    //to remove
 
 /*************************************************/
 /*******************freeing***********************/
@@ -78,8 +78,18 @@ void		free_and_exit(t_list *a);
 /*******************sorting***********************/
 
 bool		ft_sorted(t_list *a);
-void		sort3(t_list *a);
-void		sort5(t_list *a);
-void		LIS_sort(t_list *a);
+void		sort3(t_list **a);
+void		sort5(t_list **a, t_list **b);
+void		LIS_sort(t_list **a, t_list **b);
+
+/*************************************************/
+/*************indexing_linked_list****************/
+
+void		indexing(t_list *a);
+void		min_to_top(t_list **a);
+int			find_max(int *array, int len);
+int			find_min(t_list *a);
+
+/*************************************************/
 
 #endif

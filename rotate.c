@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 10:57:51 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/08 16:31:53 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/13 00:48:02 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,16 @@
 
 void	ra(t_list **a, int c)
 {
-	t_list	*parcour;
 	t_list	*tmp;
 
 	if (*a && (*a)->next)
 	{
 		tmp = *a;
 		*a = (*a)->next;
-		parcour = *a;
-		while (parcour->next)
-			parcour = parcour->next;
-		parcour->next = tmp;
 		tmp->next = NULL;
-	if (c == 0)
-		write(1, "ra\n", 3);
+		ft_lstadd_back(a, tmp);
+		if (c == 0)
+			write(1, "ra\n", 3);
 	}
 }
 
