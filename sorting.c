@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 02:57:31 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/13 02:53:46 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/14 02:45:09 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	sort3(t_list **a)
 	int		i;
 
 	tmp = *a;
-	i = find_max(*a);
+	i = find_max_content(*a);
 	if (tmp->content == i)
 		ra(a, 0);
 	else if (tmp->next->content == i)
@@ -59,50 +59,19 @@ void	sort5(t_list **a, t_list **b)
 	while (i < j - 3)
 	{
 		indexing(*a);
-		show_elm(*a);
 		min_to_top(a);
 		pb(a, b, 0);
 		i++;
 	}
 	sort3(a);
-	while (*b)
+	while (i--)
 		pa(a, b, 0);
 }
 
-// int	*tab(t_list **a)
-// {
-// 	int		*array;
-// 	int		*index;
-// 	int		*lis;
-// 	t_list	*tmp;
-// 	int		i;
-// 	int		j;
-// 	int		len;
-
-// 	tmp = *a;
-// 	i = -1;
-// 	while (tmp)
-// 	{
-// 		array[++i] = tmp->content;
-// 		index[i] = 1;
-// 		tmp = tmp->next;
-// 	}
-// 	i = 0;
-// 	while (++i < ft_lstsize(*a))
-// 	{
-// 		j = 0;
-// 		if (array[i] > array[j] && index[i] < index[j] + 1)
-// 			index[i]++;
-// 	}
-// 	len = find_max(array, ft_lstsize(*a));
-// 	while (--len)
-// 	{
-// 		lis[len] =
-// 	}
-// 	return (lis);
-// }
-
-// void	LIS_sort(t_list **a, t_list **b)
-// {
-
-// }
+void	LIS_sort(t_list **a, t_list **b)
+{
+	dexing(a);
+	set_dex_lis_tozero(a);
+	push_not_lis(a,b);
+	show_elm(*a);
+}

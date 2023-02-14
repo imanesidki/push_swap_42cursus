@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:18:14 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/12 18:45:02 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/14 01:22:01 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	pa(t_list **a, t_list **b, int c)
 	{
 		tmp = *b;
 		*b = (*b)->next;
+		if (*b)
+			(*b)->prev = NULL;
 		tmp->next = NULL;
 		ft_lstadd_front(a, tmp);
 		if (c == 0)
@@ -35,6 +37,7 @@ void	pb(t_list **a, t_list **b, int c)
 	{
 		tmp = *a;
 		*a = (*a)->next;
+		(*a)->prev = NULL;
 		tmp->next = NULL;
 		ft_lstadd_front(b, tmp);
 		if (c == 0)

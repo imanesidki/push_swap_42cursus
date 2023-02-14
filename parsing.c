@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 02:53:39 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/13 00:49:14 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/13 23:39:18 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	show_elm(t_list *a) //to remove
 	printf("----------------------\n");
 	while (a)
 	{
-		printf("content = %d| index = %d\n", a->content, a->index);
+		printf("content = %d| index = %d\n| dex = %d\n", a->content, a->index, a->dex);
 		a = a->next;
 	}
 	printf("----------------------\n");

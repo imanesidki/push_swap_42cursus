@@ -6,39 +6,24 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 00:55:19 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/13 02:01:53 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/14 02:45:14 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_max(int *array, int len)
-{
-	int		i;
-	int		j;
-
-	i = -1
-	j = array[0];
-	while (++i < len)
-	{
-		if (array[i] < array[i + 1])
-			j = array[i + 1];
-	}
-	return (j);
-}
-
-int	find_min(t_list *a)
+int	find_max_dex(t_list *a)
 {
 	t_list	*tmp;
 	int		i;
 
 	tmp = a;
-	i = tmp->content;
+	i = tmp->dex;
 	tmp = tmp->next;
 	while (tmp)
 	{
-		if (i > tmp->content)
-			i = tmp->content;
+		if (i < tmp->dex)
+			i = tmp->dex;
 		tmp = tmp->next;
 	}
 	return (i);
@@ -66,27 +51,60 @@ void	indexing(t_list *a)
 	}
 }
 
-void	min_to_top(t_list **a)
+void	dexing(t_list **a)
 {
-	t_list	*tmp;
-	int		i;
+	t_list	*tmp1;
+	t_list	*tmp2;
 
-	tmp = *a;
-	i = find_min(*a);
-	while (tmp)
+	tmp2 = (*a)->next;
+	while (tmp2)
 	{
-		if (tmp->index == 0 && tmp->content == i)
-			return ;
-		if (tmp->index > 0 && tmp->content == i)
+		tmp1 = *a;
+		while (tmp1->next)
 		{
-			while ((tmp->index)-- != 0)
-				ra(a, 0);
+			if (tmp2->content > tmp1->content && tmp2->dex < (tmp1->dex + 1))
+				(tmp2->dex)++;
+			tmp1 = tmp1->next;
 		}
-		else if (tmp->index < 0 && tmp->content == i)
+		tmp2 = tmp2->next;
+	}
+}
+
+void	set_dex_lis_tozero(t_list **a)
+{
+	int		i;
+	t_list	*tmp1;
+
+	i = find_max_dex(*a);
+	tmp1 = *a;
+	while (tmp1->next)
+		tmp1 = tmp1->next;
+	while (tmp1)
+	{
+		if (tmp1->dex == i)
 		{
-			while ((tmp->index)++ != 0)
-				rra(a, 0);
+			tmp1->dex = 0;
+			i--;
 		}
-		tmp = tmp->next;
+		tmp1 = tmp1->prev;
+	}
+}
+
+void	push_not_lis(t_list **a, t_list **b)
+{
+	t_list *tmp1;
+
+	tmp1 = *a;
+	while (tmp1)
+	{
+		if (tmp1->dex != 0)
+		{
+			indexing(*a);
+			elm_to_top(a);
+			pb(a, b, 0);
+			tmp1 = *a;
+		}
+		else
+			tmp1 = tmp1->next;
 	}
 }

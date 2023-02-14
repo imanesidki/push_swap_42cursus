@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 22:15:30 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/13 00:50:23 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/14 00:15:17 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (!*lst)
 	{
 		*lst = new;
+		new->prev = NULL;
 		return ;
 	}
 	parcour = *lst;
@@ -35,6 +36,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		parcour = parcour->next;
 	}
 	ptr->next = new;
+	new->prev = ptr;
 }
 
 t_list	*ft_lstnew(int content)
@@ -45,7 +47,9 @@ t_list	*ft_lstnew(int content)
 	if (!node)
 		return (NULL);
 	node->content = content;
+	node->dex = 1;
 	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }
 
@@ -82,6 +86,10 @@ int	ft_lstsize(t_list *lst)
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (*lst)
+	{
 		new->next = *lst;
+		(*lst)->prev = new;
+	}
 	*lst = new;
+	new->prev = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:39:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/13 02:03:07 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/14 01:51:30 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ typedef struct s_list
 {
 	int				index;
 	int				content;
+	int				dex;
 	struct s_list	*next;
+	struct s_list	*prev;
 }	t_list;
 
 /**********************************************/
@@ -86,10 +88,14 @@ void		LIS_sort(t_list **a, t_list **b);
 /*************indexing_linked_list****************/
 
 void		indexing(t_list *a);
+void		dexing(t_list **a);
+int			find_max_dex(t_list *a);
+int			find_min_content(t_list *a);
+int			find_max_content(t_list *a);
 void		min_to_top(t_list **a);
-int			find_max(int *array, int len);
-int			find_min(t_list *a);
-
+void		elm_to_top(t_list **a);
+void		set_dex_lis_tozero(t_list **a);
+void		push_not_lis(t_list **a, t_list **b);
 /*************************************************/
 
 #endif

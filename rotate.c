@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 10:57:51 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/13 00:48:02 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/14 00:00:42 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ra(t_list **a, int c)
 	{
 		tmp = *a;
 		*a = (*a)->next;
+		(*a)->prev = NULL;
 		tmp->next = NULL;
 		ft_lstadd_back(a, tmp);
 		if (c == 0)
