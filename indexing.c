@@ -6,28 +6,11 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 00:55:19 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/14 02:45:14 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/15 05:22:28 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	find_max_dex(t_list *a)
-{
-	t_list	*tmp;
-	int		i;
-
-	tmp = a;
-	i = tmp->dex;
-	tmp = tmp->next;
-	while (tmp)
-	{
-		if (i < tmp->dex)
-			i = tmp->dex;
-		tmp = tmp->next;
-	}
-	return (i);
-}
 
 void	indexing(t_list *a)
 {
@@ -90,21 +73,45 @@ void	set_dex_lis_tozero(t_list **a)
 	}
 }
 
-void	push_not_lis(t_list **a, t_list **b)
+int	index_elm_b_in_a(int b, t_list *a)
 {
-	t_list *tmp1;
+	t_list	*tmp1;
+	t_list	*tmp2;
+	int		max;
 
-	tmp1 = *a;
-	while (tmp1)
+	tmp1 = a;
+	tmp2 = a->next;
+	max = find_max_content(a);
+	while (tmp1->next && tmp2)
 	{
-		if (tmp1->dex != 0)
+		if (b > max && tmp1->content == max)
+			return (tmp2->index);
+		if (b > max && tmp2->content == max && tmp2->next == NULL)
+			return (0);
+		if (b != max)
 		{
-			indexing(*a);
-			elm_to_top(a);
-			pb(a, b, 0);
-			tmp1 = *a;
+			if (b > tmp1->content && b < tmp2->content)
+				return (tmp2->index);
 		}
-		else
-			tmp1 = tmp1->next;
+		tmp1 = tmp1->next;
+		tmp2 = tmp2->next;
 	}
+	return (0);
+}
+
+int	check_index(int index1, int index2)
+{
+	if (index1 >= 0 && index2 >= 0 && index1 >= index2)
+		return (index1);
+	if (index1 >= 0 && index2 >= 0 && index1 <= index2)
+		return (index2);
+	if (index1 <= 0 && index2 <= 0 && index1 <= index2)
+		return (-index1);
+	if (index1 <= 0 && index2 <= 0 && index1 >= index2)
+		return (-index2);
+	if (index1 <= 0 && index2 >= 0)
+		return ((-index1) + index2);
+	if (index1 >= 0 && index2 <= 0)
+		return (index1 + (-index2));
+	return (0);
 }

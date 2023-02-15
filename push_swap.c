@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:39:35 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/14 01:56:45 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/14 22:10:35 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int ac, char **av)
 		else if (ft_lstsize(stack_a) <= 5)
 			sort5(&stack_a, &stack_b);
 		else
-			LIS_sort(&stack_a, &stack_b);
+			lis_sort(&stack_a, &stack_b);
 		ft_lstclear(&stack_a);
 		ft_lstclear(&stack_b);
 	}

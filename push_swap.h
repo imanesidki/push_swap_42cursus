@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:39:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/14 01:51:30 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/15 05:16:29 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,23 @@ typedef struct s_list
 /**********************************************/
 /************push_swap_operations**************/
 
+/************swap***********/
+
 void		sa(t_list **a, int c);
 void		sb(t_list **b, int c);
 void		ss(t_list **a, t_list **b, int c);
+
+/**********rotate**********/
+
 void		ra(t_list **a, int c);
 void		rb(t_list **b, int c);
 void		rra(t_list **a, int c);
 void		rrb(t_list **b, int c);
 void		rrr(t_list **a, t_list **b, int c);
 void		rr(t_list **a, t_list **b, int c);
+
+/***********push***********/
+
 void		pa(t_list **a, t_list **b, int c);
 void		pb(t_list **a, t_list **b, int c);
 
@@ -82,20 +90,33 @@ void		free_and_exit(t_list *a);
 bool		ft_sorted(t_list *a);
 void		sort3(t_list **a);
 void		sort5(t_list **a, t_list **b);
-void		LIS_sort(t_list **a, t_list **b);
+void		lis_sort(t_list **a, t_list **b);
+void		push_not_lis(t_list **a, t_list **b);
+void		push_back_to_a(t_list **a, t_list **b);
 
 /*************************************************/
-/*************indexing_linked_list****************/
+/*************indexing_stack****************/
 
 void		indexing(t_list *a);
 void		dexing(t_list **a);
-int			find_max_dex(t_list *a);
+void		set_dex_lis_tozero(t_list **a);
+int			index_elm_b_in_a(int b, t_list *a);
+int			check_index(int index1, int index2);
+
+/************************************************/
+/*******************moves***********************/
+
+void		elm_to_top(t_list **a, int i);
+void		min_to_top(t_list **a);
+t_list		*min_total_moves(t_list *a, t_list *b);
+
+/***********************************************/
+/*******************find_elment*****************/
+
 int			find_min_content(t_list *a);
 int			find_max_content(t_list *a);
-void		min_to_top(t_list **a);
-void		elm_to_top(t_list **a);
-void		set_dex_lis_tozero(t_list **a);
-void		push_not_lis(t_list **a, t_list **b);
-/*************************************************/
+int			find_max_dex(t_list *a);
+
+/************************************************/
 
 #endif
