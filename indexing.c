@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 00:55:19 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/17 12:05:46 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/17 16:17:31 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,30 +73,60 @@ void	set_dex_lis_tozero(t_list **a)
 	}
 }
 
+// int	index_elm_b_in_a(int b, t_list *a)
+// {
+// 	t_list	*tmp1;
+// 	t_list	*tmp2;
+// 	int		max;
+
+// 	tmp1 = a;
+// 	tmp2 = a->next;
+// 	max = find_max_content(a);
+// 	while (tmp1->next && tmp2)
+// 	{
+// 		if (b > max && tmp1->content == max)
+// 			return (tmp2->index);
+// 		if (b > max && tmp2->content == max && tmp2->next == NULL)
+// 			return (0);
+// 		if (b < max)
+// 		{
+// 			if (b > tmp1->content && b < tmp2->content)
+// 				return (tmp2->index);
+// 		}
+// 		tmp1 = tmp1->next;
+// 		tmp2 = tmp2->next;
+// 	}
+// 	return (0);
+// }
+
 int	index_elm_b_in_a(int b, t_list *a)
 {
 	t_list	*tmp1;
 	t_list	*tmp2;
-	int		max;
+	int index;
 
+	tmp2 = find_min_content(a);
+	index = tmp2->index;
 	tmp1 = a;
-	tmp2 = a->next;
-	max = find_max_content(a);
-	while (tmp1->next && tmp2)
+	while (tmp1)
 	{
-		if (b > max && tmp1->content == max)
-			return (tmp2->index);
-		if (b < max)
+		if (tmp1->content > b)
 		{
-			if (b > tmp1->content && b < tmp2->content)
-				return (tmp2->index);
+			tmp2 = tmp1;
+			index = tmp1->index;
 		}
-		if (b > max && tmp2->content == max && tmp2->next == NULL)
-			return (0);
 		tmp1 = tmp1->next;
-		tmp2 = tmp2->next;
 	}
-	return (0);
+	while(a)
+	{
+		if(a->content > b && a->content < tmp2->content)
+		{
+			tmp2 = a;
+			index = a->index;
+		}
+		a = a->next;
+	}
+	return (index);
 }
 
 int	check_index(int index1, int index2)
