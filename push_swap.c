@@ -6,20 +6,14 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:39:35 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/14 22:10:35 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/17 12:17:54 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void ft_leaks()
-// {
-// 	system("leaks push_swap");
-// }
-
 int	main(int ac, char **av)
 {
-	// atexit(ft_leaks);
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		i;

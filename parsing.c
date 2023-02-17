@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 02:53:39 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/13 23:39:18 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/17 12:44:41 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,4 @@ t_list	*parsing(int ac, char **av)
 	stack_a = stock_in_stack(array);
 	free_all(array);
 	return (stack_a);
-}
-
-void	show_elm(t_list *a) //to remove
-{
-	printf("----------------------\n");
-	while (a)
-	{
-		printf("content = %d| index = %d\n| dex = %d\n", a->content, a->index, a->dex);
-		a = a->next;
-	}
-	printf("----------------------\n");
 }

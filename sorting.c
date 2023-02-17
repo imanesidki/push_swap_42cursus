@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 02:57:31 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/15 05:18:35 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/17 13:47:02 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,25 @@ void	push_not_lis(t_list **a, t_list **b)
 	}
 }
 
+void	show_stack(t_list *a)   //remove
+{
+	t_list *tmp = a;
+	printf("--------------------------------\n");
+	while (tmp)
+	{
+		printf("%d\n",tmp->content);
+		tmp = tmp->next;
+	}
+	printf("--------------------------------");
+}
+
 void	lis_sort(t_list **a, t_list **b)
 {
 	dexing(a);
 	set_dex_lis_tozero(a);
 	push_not_lis(a, b);
 	push_back_to_a(a, b);
-	show_elm(*a);
-	show_elm(*b);
+	min_to_top(a);
+	show_stack(*a);
 }
+

@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 00:55:19 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/15 05:22:28 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/17 12:05:46 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,13 @@ int	index_elm_b_in_a(int b, t_list *a)
 	{
 		if (b > max && tmp1->content == max)
 			return (tmp2->index);
-		if (b > max && tmp2->content == max && tmp2->next == NULL)
-			return (0);
-		if (b != max)
+		if (b < max)
 		{
 			if (b > tmp1->content && b < tmp2->content)
 				return (tmp2->index);
 		}
+		if (b > max && tmp2->content == max && tmp2->next == NULL)
+			return (0);
 		tmp1 = tmp1->next;
 		tmp2 = tmp2->next;
 	}

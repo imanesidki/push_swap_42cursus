@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:39:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/15 05:16:29 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/17 13:42:10 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ t_list		*parsing(int ac, char **av);
 void		check_digit(char *str);
 void		msg_err(void);
 t_list		*stock_in_stack(char **array);
-void		show_elm(t_list *a);                    //to remove
 
 /*************************************************/
 /*******************freeing***********************/
@@ -108,14 +107,20 @@ int			check_index(int index1, int index2);
 
 void		elm_to_top(t_list **a, int i);
 void		min_to_top(t_list **a);
-t_list		*min_total_moves(t_list *a, t_list *b);
+t_list		*min_total_moves(t_list **a, t_list **b);
+void		elm_to_top_ab(t_list **a, t_list **b, int indexa, int indexb);
+void		same_index_ab_pos(t_list **a, t_list **b, int indexa, int indexb);
+void		same_index_ab_neg(t_list **a, t_list **b, int indexa, int indexb);
+void		diff_index_ab_1(t_list **a, t_list **b, int indexa, int indexb);
+void		diff_index_ab_2(t_list **a, t_list **b, int indexa, int indexb);
 
 /***********************************************/
 /*******************find_elment*****************/
 
-int			find_min_content(t_list *a);
+t_list		*find_min_content(t_list *a);
 int			find_max_content(t_list *a);
 int			find_max_dex(t_list *a);
+void		show_stack(t_list *a);   //remove
 
 /************************************************/
 
