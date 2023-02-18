@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 00:55:19 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/17 16:17:31 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/18 11:00:43 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,26 @@ void	indexing(t_list *a)
 void	dexing(t_list **a)
 {
 	t_list	*tmp1;
+	int		i;
 	t_list	*tmp2;
 
-	tmp2 = (*a)->next;
-	while (tmp2)
+	tmp1 = find_min_content(*a);
+	tmp2 = tmp1->next;
+	i = ft_lstsize(*a);
+	while (i-- >= 0)
 	{
-		tmp1 = *a;
-		while (tmp1->next)
+		tmp1 = find_min_content(*a);
+		while (tmp1->next && tmp1 != find_min_content(*a)->prev)
 		{
 			if (tmp2->content > tmp1->content && tmp2->dex < (tmp1->dex + 1))
 				(tmp2->dex)++;
 			tmp1 = tmp1->next;
+			if (!tmp1->next)
+				tmp1 = *a;
 		}
 		tmp2 = tmp2->next;
+		if (!tmp2->next)
+			tmp2 = *a;
 	}
 }
 
@@ -73,60 +80,30 @@ void	set_dex_lis_tozero(t_list **a)
 	}
 }
 
-// int	index_elm_b_in_a(int b, t_list *a)
-// {
-// 	t_list	*tmp1;
-// 	t_list	*tmp2;
-// 	int		max;
-
-// 	tmp1 = a;
-// 	tmp2 = a->next;
-// 	max = find_max_content(a);
-// 	while (tmp1->next && tmp2)
-// 	{
-// 		if (b > max && tmp1->content == max)
-// 			return (tmp2->index);
-// 		if (b > max && tmp2->content == max && tmp2->next == NULL)
-// 			return (0);
-// 		if (b < max)
-// 		{
-// 			if (b > tmp1->content && b < tmp2->content)
-// 				return (tmp2->index);
-// 		}
-// 		tmp1 = tmp1->next;
-// 		tmp2 = tmp2->next;
-// 	}
-// 	return (0);
-// }
-
 int	index_elm_b_in_a(int b, t_list *a)
 {
 	t_list	*tmp1;
 	t_list	*tmp2;
-	int index;
+	int		max;
 
-	tmp2 = find_min_content(a);
-	index = tmp2->index;
 	tmp1 = a;
-	while (tmp1)
+	tmp2 = a->next;
+	max = find_max_content(a);
+	while (tmp1->next && tmp2)
 	{
-		if (tmp1->content > b)
+		if (b > max && tmp1->content == max)
+			return (tmp2->index);
+		if (b > max && tmp2->content == max && tmp2->next == NULL)
+			return (0);
+		if (b < max)
 		{
-			tmp2 = tmp1;
-			index = tmp1->index;
+			if (b > tmp1->content && b < tmp2->content)
+				return (tmp2->index);
 		}
 		tmp1 = tmp1->next;
+		tmp2 = tmp2->next;
 	}
-	while(a)
-	{
-		if(a->content > b && a->content < tmp2->content)
-		{
-			tmp2 = a;
-			index = a->index;
-		}
-		a = a->next;
-	}
-	return (index);
+	return (0);
 }
 
 int	check_index(int index1, int index2)
