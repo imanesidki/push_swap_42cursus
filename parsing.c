@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 02:53:39 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/19 08:19:01 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/19 13:26:57 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,24 @@ void	msg_err(void)
 	exit (1);
 }
 
+int	ft_isdigit(int i)
+{
+	if (i >= '0' && i <= '9')
+		return (1);
+	return (0);
+}
+
 void	check_digit(char *str)
 {
 	int	i;
+	int	c;
 
 	i = -1;
+	c = 0;
 	while (str[++i])
 	{
+		if (ft_isdigit(str[i]))
+			c++;
 		if (str[i] != '-' && str[i] != '+'
 			&& str[i] != ' ' && (str[i] < '0' || str[i] > '9'))
 			msg_err();
@@ -32,7 +43,10 @@ void	check_digit(char *str)
 			&& (str[i + 1] < '0' || str[i + 1] > '9'))
 			msg_err();
 	}
+	if (c == 0)
+		msg_err();
 }
+
 
 t_list	*stock_in_stack(char **array)
 {
@@ -55,7 +69,6 @@ t_list	*parsing(int ac, char **av)
 	t_list	*stack_a;
 
 	str = ft_strjoin(ac - 1, av + 1, ' ');
-	check_digit(str);
 	array = ft_split(str, ' ');
 	free(str);
 	stack_a = stock_in_stack(array);

@@ -24,10 +24,10 @@ all : $(NAME)
 
 bonus : $(BONUS_NAME)
 
-$(NAME) : $(OBJET) push_swap.h
+$(NAME) : $(OBJET)
 	$(CC) $(CFLAGS) $(OBJET) -o $(NAME)
 
-$(BONUS_NAME) : $(OBJET_BONUS) $(OBJET) push_swap.h
+$(BONUS_NAME) : $(OBJET_BONUS) $(OBJET)
 	$(CC) $(CFLAGS) $(OBJET_BONUS) -o $(BONUS_NAME)
 
 %.o : %.c push_swap.h
