@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:39:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/18 19:29:05 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/19 13:26:11 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ t_list		*parsing(int ac, char **av);
 void		check_digit(char *str);
 void		msg_err(void);
 t_list		*stock_in_stack(char **array);
+int			ft_isdigit(int i);
 
 /*************************************************/
 /*******************freeing***********************/
@@ -124,7 +125,6 @@ void		diff_index_ab_2(t_list **a, t_list **b, int indexa, int indexb);
 t_list		*find_min_content(t_list *a);
 t_list		*find_max_content(t_list *a);
 int			find_max_dex(t_list *a);
-void		show_stack(t_list *a);   //remove
 
 /************************************************/
 /*****************bonus_checker******************/
