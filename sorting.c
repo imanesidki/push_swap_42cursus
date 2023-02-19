@@ -6,36 +6,21 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 02:57:31 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/18 11:02:42 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/19 08:43:40 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	ft_sorted(t_list *a)
-{
-	t_list	*tmp1;
-	t_list	*tmp2;
-
-	tmp1 = (a)->next;
-	tmp2 = a;
-	while (tmp1 && tmp2->next)
-	{
-		if (tmp1->content < tmp2->content)
-			return (false);
-		tmp1 = tmp1->next;
-		tmp2 = tmp2->next;
-	}
-	return (true);
-}
-
 void	sort3(t_list **a)
 {
 	t_list	*tmp;
+	t_list	*tmp2;
 	int		i;
 
 	tmp = *a;
-	i = find_max_content(*a);
+	tmp2 = find_max_content(*a);
+	i = tmp2->content;
 	if (tmp->content == i)
 		ra(a, 0);
 	else if (tmp->next->content == i)
@@ -87,17 +72,6 @@ void	push_not_lis(t_list **a, t_list **b)
 	}
 }
 
-// void	show_stack(t_list *a)
-// {
-// 	t_list *tmp = a;
-// 	printf("--------------------------------\n");
-// 	while (tmp)
-// 	{
-// 		printf("content=%d\n",tmp->content);
-// 		tmp = tmp->next;
-// 	}
-// }
-
 void	lis_sort(t_list **a, t_list **b)
 {
 	dexing(a);
@@ -105,5 +79,4 @@ void	lis_sort(t_list **a, t_list **b)
 	push_not_lis(a, b);
 	push_back_to_a(a, b);
 	min_to_top(a);
-	// show_stack(*a);
 }

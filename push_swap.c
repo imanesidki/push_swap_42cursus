@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:39:35 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/17 12:17:54 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/18 15:06:37 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ int	main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	int		i;
 
-	i = 0;
 	if (ac == 1)
 		exit(0);
 	if (ac >= 2)

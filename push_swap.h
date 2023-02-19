@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:39:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/17 13:42:10 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/19 08:50:54 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdbool.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100
+# endif
 
 typedef struct s_list
 {
@@ -94,7 +98,7 @@ void		push_not_lis(t_list **a, t_list **b);
 void		push_back_to_a(t_list **a, t_list **b);
 
 /*************************************************/
-/*************indexing_stack****************/
+/*************indexing_stack*********************/
 
 void		indexing(t_list *a);
 void		dexing(t_list **a);
@@ -118,10 +122,30 @@ void		diff_index_ab_2(t_list **a, t_list **b, int indexa, int indexb);
 /*******************find_elment*****************/
 
 t_list		*find_min_content(t_list *a);
-int			find_max_content(t_list *a);
+t_list		*find_max_content(t_list *a);
 int			find_max_dex(t_list *a);
-void		show_stack(t_list *a);   //remove
 
 /************************************************/
+/*****************bonus_checker******************/
+
+void		get_lines(t_list **a, t_list **b, char *line);
+void		check_line(t_list **a, t_list **b, char *line);
+void		swap_bon(t_list **a, t_list **b, char *line);
+void		error_free(t_list **a, t_list **b, char *line);
+void		ok(t_list **a, t_list **b);
+void		ko(t_list **a, t_list **b);
+
+/************************************************/
+/*************get_next_line_for_bonus************/
+
+char		*read_buff(int fd, char *hold);
+char		*update(char *hold);
+char		*mygetline(char *hold);
+char		*get_next_line(int fd);
+char		*ft_strchr(char *string, int c);
+int			ft_strcmp(char *first, char *second);
+char		*ft_strjoin_strings(char *s1, char *s2);
+char		*ft_substrs(char *s, unsigned int start, int len);
+char		*ft_strdup(char *source);
 
 #endif

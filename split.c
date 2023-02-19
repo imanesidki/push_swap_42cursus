@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils1.c                                           :+:      :+:    :+:   */
+/*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 12:34:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/11 02:51:46 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/18 17:14:26 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	count_nums(char *str, char c)
 	return (count);
 }
 
-static char	*ft_strdup(char *source)
+char	*ft_strdup(char *source)
 {
 	char	*dst;
 	int		i;

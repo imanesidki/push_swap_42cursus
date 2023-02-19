@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 00:55:19 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/18 11:43:16 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/18 20:49:29 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	dexing(t_list **a)
 				tmp1 = *a;
 		}
 		tmp2 = tmp2->next;
-		if (!tmp2->next)
+		if (!tmp2)
 			tmp2 = *a;
 	}
 }
@@ -84,23 +84,19 @@ int	index_elm_b_in_a(int b, t_list *a)
 {
 	t_list	*tmp1;
 	t_list	*tmp2;
-	int index;
+	int		index;
 
 	tmp2 = find_min_content(a);
 	index = tmp2->index;
-	tmp1 = a;
-	while (tmp1)
+	tmp1 = find_max_content(a);
+	if (tmp1->content > b)
 	{
-		if (tmp1->content > b)
-		{
-			tmp2 = tmp1;
-			index = tmp1->index;
-		}
-		tmp1 = tmp1->next;
+		tmp2 = tmp1;
+		index = tmp2->index;
 	}
-	while(a)
+	while (a)
 	{
-		if(a->content > b && a->content < tmp2->content)
+		if (a->content > b && a->content < tmp2->content)
 		{
 			tmp2 = a;
 			index = a->index;

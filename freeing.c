@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 02:50:53 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/11 05:02:42 by isidki           ###   ########.fr       */
+/*   Updated: 2023/02/19 08:31:37 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,20 @@ void	free_all(char **str)
 	while (str[++i])
 		free(str[i]);
 	free(str);
+}
+
+void	ok(t_list **a, t_list **b)
+{
+	write (1, "OK\n", 3);
+	ft_lstclear(a);
+	ft_lstclear(b);
+	exit (0);
+}
+
+void	ko(t_list **a, t_list **b)
+{
+	write (1, "KO\n", 3);
+	ft_lstclear(a);
+	ft_lstclear(b);
+	exit (1);
 }
