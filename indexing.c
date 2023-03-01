@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 00:55:19 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/18 20:49:29 by isidki           ###   ########.fr       */
+/*   Updated: 2023/03/01 23:49:11 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	dexing(t_list **a)
 
 	tmp1 = find_min_content(*a);
 	tmp2 = tmp1->next;
+	(!tmp2) && (tmp2 = *a);
 	i = ft_lstsize(*a);
 	while (i-- >= 0)
 	{

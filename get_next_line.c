@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:00:05 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/18 16:19:31 by isidki           ###   ########.fr       */
+/*   Updated: 2023/03/02 00:01:09 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*mygetline(char *hold)
 	i = 0;
 	while (hold[i] && hold[i] != '\n')
 		i++;
-	str = ft_substrs(hold, 0, i + 1);
+	str = ft_substrs(hold, 0, i);
 	return (str);
 }
 

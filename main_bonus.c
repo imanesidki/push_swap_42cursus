@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:30:01 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/19 08:59:25 by isidki           ###   ########.fr       */
+/*   Updated: 2023/03/01 23:42:40 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 void	check_line(t_list **a, t_list **b, char *line)
 {
-	if (!ft_strcmp(line, "ra\n"))
+	if (!ft_strcmp(line, "ra"))
 		ra(a, 1);
-	else if (!ft_strcmp(line, "rb\n"))
+	else if (!ft_strcmp(line, "rb"))
 		rb(b, 1);
-	else if (!ft_strcmp(line, "rr\n"))
+	else if (!ft_strcmp(line, "rr"))
 		rr(a, b, 1);
-	else if (!ft_strcmp(line, "rra\n"))
+	else if (!ft_strcmp(line, "rra"))
 		rra(a, 1);
-	else if (!ft_strcmp(line, "rrb\n"))
+	else if (!ft_strcmp(line, "rrb"))
 		rrb(b, 1);
-	else if (!ft_strcmp(line, "rrr\n"))
+	else if (!ft_strcmp(line, "rrr"))
 		rrr(a, b, 1);
-	else if (!ft_strcmp(line, "pa\n"))
+	else if (!ft_strcmp(line, "pa"))
 		pa(a, b, 1);
-	else if (!ft_strcmp(line, "pb\n"))
+	else if (!ft_strcmp(line, "pb"))
 		pb(a, b, 1);
 	else
 		swap_bon(a, b, line);
@@ -36,7 +36,7 @@ void	check_line(t_list **a, t_list **b, char *line)
 
 void	error_free(t_list **a, t_list **b, char *line)
 {
-	write(2, "Error\n", 6);
+	write(2, "Error", 6);
 	free (line);
 	ft_lstclear(a);
 	ft_lstclear(b);
@@ -45,11 +45,11 @@ void	error_free(t_list **a, t_list **b, char *line)
 
 void	swap_bon(t_list **a, t_list **b, char *line)
 {
-	if (!ft_strcmp(line, "sa\n"))
+	if (!ft_strcmp(line, "sa"))
 		sa(a, 1);
-	else if (!ft_strcmp(line, "sb\n"))
+	else if (!ft_strcmp(line, "sb"))
 		sb(b, 1);
-	else if (!ft_strcmp(line, "ss\n"))
+	else if (!ft_strcmp(line, "ss"))
 		ss(a, b, 1);
 	else
 		error_free(a, b, line);

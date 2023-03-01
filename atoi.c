@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:32:00 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/13 00:44:46 by isidki           ###   ########.fr       */
+/*   Updated: 2023/03/02 00:11:41 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,21 @@ int	ft_strlen(char *str)
 	while (*(str + i))
 		i++;
 	return (i);
+}
+
+bool	ft_sorted(t_list *a)
+{
+	t_list	*tmp1;
+	t_list	*tmp2;
+
+	tmp1 = (a)->next;
+	tmp2 = a;
+	while (tmp1 && tmp2->next)
+	{
+		if (tmp1->content < tmp2->content)
+			return (false);
+		tmp1 = tmp1->next;
+		tmp2 = tmp2->next;
+	}
+	return (true);
 }

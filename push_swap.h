@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:39:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/19 13:26:11 by isidki           ###   ########.fr       */
+/*   Updated: 2023/03/02 00:07:52 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdbool.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100
+#  define BUFFER_SIZE 10000
 # endif
 
 typedef struct s_list

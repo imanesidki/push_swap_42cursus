@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:00:22 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/18 18:50:16 by isidki           ###   ########.fr       */
+/*   Updated: 2023/03/01 23:59:53 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,7 @@ char	*ft_strjoin_strings(char *s1, char *s2)
 		str[i] = dup[i];
 	while (s2[++j])
 		str[i + j] = s2[j];
-	str[i + j] = 0;
-	free(dup);
-	return (str);
+	return (str[i + j] = 0, free(dup), str);
 }
 
 char	*ft_substrs(char *s, unsigned int start, int len)

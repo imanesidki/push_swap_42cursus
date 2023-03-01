@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 02:57:31 by isidki            #+#    #+#             */
-/*   Updated: 2023/02/19 08:43:40 by isidki           ###   ########.fr       */
+/*   Updated: 2023/03/02 00:11:32 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	sort5(t_list **a, t_list **b)
 	{
 		indexing(*a);
 		min_to_top(a);
+		if (ft_sorted(*a))
+			return ;
 		pb(a, b, 0);
 		i++;
 	}
