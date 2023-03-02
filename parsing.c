@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 02:53:39 by isidki            #+#    #+#             */
-/*   Updated: 2023/03/02 00:06:33 by isidki           ###   ########.fr       */
+/*   Updated: 2023/03/02 22:46:22 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	check_digit(char *str)
 			msg_err();
 		if ((str[i] == '+' || str[i] == '-')
 			&& (str[i + 1] < '0' || str[i + 1] > '9'))
+			msg_err();
+		if (ft_isdigit(str[i]) && (str[i + 1] == '+' || str[i + 1] == '-'))
 			msg_err();
 	}
 	if (c == 0)

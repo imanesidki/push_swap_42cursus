@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 00:55:19 by isidki            #+#    #+#             */
-/*   Updated: 2023/03/01 23:49:11 by isidki           ###   ########.fr       */
+/*   Updated: 2023/03/02 22:56:44 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ void	dexing(t_list **a)
 {
 	t_list	*tmp1;
 	int		i;
+	int		c;
 	t_list	*tmp2;
 
+	c = 1;
 	tmp1 = find_min_content(*a);
 	tmp2 = tmp1->next;
 	(!tmp2) && (tmp2 = *a);
@@ -47,13 +49,12 @@ void	dexing(t_list **a)
 	while (i-- >= 0)
 	{
 		tmp1 = find_min_content(*a);
-		while (tmp1->next && tmp1 != find_min_content(*a)->prev)
+		while (c && tmp1->next && tmp1 != find_min_content(*a)->prev)
 		{
 			if (tmp2->content > tmp1->content && tmp2->dex < (tmp1->dex + 1))
 				(tmp2->dex)++;
 			tmp1 = tmp1->next;
-			if (!tmp1->next)
-				tmp1 = *a;
+			(!tmp1->next) && ((tmp1 = *a) && (c = 0));
 		}
 		tmp2 = tmp2->next;
 		if (!tmp2)
